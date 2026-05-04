@@ -2,14 +2,6 @@
 # 이름 : 한세류
 # 내용 : 2장 SQL 기초
 
-# 테이블 생성
-CREATE TABLE User1 (
-	userid VARCHAR(20),
-	name VARCHAR(20),
-	hp CHAR(13),
-    age int
-);
-
 # 실습 2-1 테이블 생성, 제거(워크북 p4)    
 use studydb;
 
@@ -53,4 +45,9 @@ ALTER TABLE User1 ADD birth CHAR(10) AFTER name;
 ALTER TABLE User1 MODIFY gender CHAR(1);
 ALTER TABLE User1 MODIFY age TINYINT;
 ALTER TABLE User1 DROP gender;
+
+# 실습 2-7 테이블 복사
+CREATE TABLE User1_1 LIKE User1;	-- User1 테이블을 가지고 User1_1 테이블 생성, 데이터는 복사 안 됨
+INSERT INTO User1_1 SELECT * FROM User1;	-- User1 테이블 데이터를 User1_1로 복사
+SELECT * FROM User1_1;
 
