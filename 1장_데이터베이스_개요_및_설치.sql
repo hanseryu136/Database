@@ -20,7 +20,7 @@ USE studydb;
 
 #--------------------------------------------
 # 일반 관리자 생성, 권한 부여, 반영
-CREATE USER 'admin'@'%' IDENTIFIED BY '1234';		-- admin 계정 생성
+CREATE USER 'admin'@'%' IDENTIFIED BY '1234';	-- admin 계정 생성
 GRANT ALL PRIVILEGES ON MYDB.* TO 'admin'@'%';	-- admin에게 mydb의 모든 권한(읽기/쓰기/수정/삭제) 부여
 FLUSH PRIVILEGES;		-- admin 계정 권한 반영
 
@@ -29,3 +29,7 @@ DROP USER 'admin'@'%';
 
 # 비밀번호 수정
 ALTER USER 'admin'@'%' IDENTIFIED BY 'abcd';
+
+ALTER USER 'admin'@'%' IDENTIFIED BY '1234';	-- admin 계정 수정
+DROP USER 'admin'@'%';
+FLUSH PRIVILEGES;		-- admin 계정 권한 반영
